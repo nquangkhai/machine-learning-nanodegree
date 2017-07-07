@@ -15449,7 +15449,12 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
     <div class="inner_cell">
       <div class="text_cell_render border-box-sizing rendered_html">
-      <p><strong>Answer</strong>: 80.36%</p>
+      <p><strong>Answer</strong>:</p>
+<ul>
+<li>First I tried to extend the previous result by adding condition around Age and Sex == male -&gt; i found out that people more likely to survise with Pclass == 1, and Age between 30-40. I have also tried another feature but it wouldnt help increase the result.</li>
+<li>So i walked back and conditioning on the female instead. Turn out, female with Pclass == 3 didnt have great rate of survival between age 40-50 and it improve quite a lot in the final result</li>
+<li><strong>i ended up increase my result to 80.36%</strong></li>
+</ul>
 
       </div>
     </div>
