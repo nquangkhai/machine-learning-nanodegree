@@ -11934,7 +11934,7 @@ Standard deviation of prices: $165,171.13
 <ul>
 <li>RM: Higher RM value should lead to higher MEDV value casue higher RM house should have more value</li>
 <li>LSTAT: An increase in LSTAT should be a signal for decreasing in MEDV. Because people in general would prefer to live in a high class neighbourhood than lower class neighbourhood</li>
-<li>PTRATIO: Higher PTRATIO can lead to higher MEDV cause it provide better utilities for children which is an important factor to consider when choosing a house.</li>
+<li>PTRATIO: Lower PTRATIO can lead to higher MEDV cause it provide better utilities/education for children which is an important factor to consider when choosing a house.</li>
 </ul>
 
 </div>
@@ -12161,7 +12161,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> If we 're not careful and set too low or too high proportion of training set we can get into trouble with underfitting or overfitting</p>
+<p><strong>Answer: </strong> If we 're not careful and set too low or too high proportion of training set we can get into trouble with underfitting or overfitting. Furthermore splitting the dataset is kind of a best practise to evaluate the model's performance so we could improve later on.</p>
 
 </div>
 </div>
@@ -13695,8 +13695,8 @@ jAkYlvSMMcYEjP8Hgh/RXXE/OccAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>With maximum depth of 1, model 's suffering from high bias which cause underfitting because it only capture the smallest amount of features.</li>
-<li>With maximum depth = 10, model 's suffering from high variance which cause overfitting because it capture too much detail in features. The width of shaded regions have indicated that.</li>
+<li>With maximum depth of 1, model 's suffering from high bias which cause underfitting because it only capture the smallest amount of features. Training score and validation score seem to converge at depth = 1 has indicated that. </li>
+<li>With maximum depth = 10, model 's suffering from high variance which cause overfitting because it capture too much detail in features. The highest width of shaded regions of depth = 10 have indicated the high uncertainty/high variation.</li>
 </ul>
 
 </div>
@@ -13761,8 +13761,8 @@ jAkYlvSMMcYEjP8Hgh/RXXE/OccAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>Grid search technique is useful for creating a combination of hyperparameters value. These value can have a significant impact on how well a model performs in particular circumstance.</li>
-<li>Using Grid search can help to choose the best combination that fits best with the dataset and result in highest score</li>
+<li>Grid search technique is useful for creating a combination of hyperparameters value. It would combine each value of the hyperparameters to each other in group to create all possible combination to test. These value can have a significant impact on how well a model performs in particular circumstance.</li>
+<li>Having all possible combination of hyperparameters. Grid search function will try to fit model and test it with the evaluation method (scoring function) to get the best hyperparameter combination.</li>
 <li>For example: In cases of using DecisionTree, max_depth and max_features could be an important factor to optimise the model's performance</li>
 </ul>
 
@@ -13793,8 +13793,10 @@ jAkYlvSMMcYEjP8Hgh/RXXE/OccAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <ul>
-<li>K-fold cross validation technique divide all sample into k equal parts (if possible) and use k-1 part of data for training and 1 part for testing. This way we can have k different combination, and it will be run k times to find the one with the highest score</li>
-<li>This method can prevent the odd of biases from randomly choosing data from the sample, thus allowing the model to predict accurately.  Also, k-fold work well with grid search to take advantage of the whole dataset in turning the hyperparameters and find the best training set.</li>
+<li>K-fold cross validation technique divide all dataset into k equal parts (if possible) sequencially (by default)  and use k-1 part of data for training and 1 part for testing. This way we can have k different combination, and it will be run k times to find the one with the highest score.</li>
+<li>This method can prevent the odd of biases from randomly choosing data from the sample, thus allowing the model to predict accurately.  Also, k-fold work well with grid search to take advantage of the whole dataset in turning the hyperparameters and find the best training set. Highest score will be captured each running time on to find the best combination of hyperparameters. </li>
+<li>K-fold is a very convenience method to increase estimator's accuracy because it run on multiple different random set of data to reduce the biases or extreme case of data.</li>
+<li>Grid search can be useful in combine the parameters without k-fold that paramaters could be somewhat locally determine and not the best one in term of general data.</li>
 </ul>
 
 </div>
@@ -13935,7 +13937,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong> Hint: </strong> The answer comes from the output of the code snipped above.</p>
-<p><strong>Answer: </strong> Parameter 'max_depth' is 4 for the optimal model.</p>
+<p><strong>Answer: </strong> Parameter 'max_depth' is 4 for the optimal model. This is different than the result that i have guessed in Question 6 but still, a very close answer. In Q6 we only evaluate the score base on 1 circumstance combination of training set and test set so it might be a little bit different for others.</p>
 
 </div>
 </div>
@@ -14030,6 +14032,7 @@ Predicted selling price for Client 3&#39;s home: $1,024,800.00
 Predicted selling price for Client 1's home: $455,700.00</p>
 <p>Predicted selling price for Client 2's home: $227,675.00</p>
 <p>Predicted selling price for Client 3's home: $1,024,800.00</p>
+<p>These results are seem reasonable. The one with biggest house, best public school and lowest poverty level should have highest price. On the flip side, Client 1 have a quite standard house -&gt; price at mean value of the population. Client 2 have smallest house but the other 2 features not the worse so have relatively low price.</p>
 
 </div>
 </div>
